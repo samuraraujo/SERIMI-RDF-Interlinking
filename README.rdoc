@@ -1,4 +1,4 @@
-<b>Serimi</b> - SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
+== SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
   
 <p>
 The interlinking of datasets published in the Linked Data Cloud is a 
@@ -19,9 +19,9 @@ the Linked Data Cloud.
 In this repository we encounter the SERIMI interlinking script. 
 We also encounter the reference alignment for Dailymed-TCM that we fixed.
 
-<b>Installation instruction</b>
+== Installation instructions
 
-<b>Usage</b>
+== Usage
 
 Usage: serimi.rb [options] 
 
