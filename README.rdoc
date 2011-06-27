@@ -30,29 +30,29 @@ Serimi is a Ruby application and demands the Jruby version of ruby. We recommend
 
 We have to install the following gems in order to make Serimi work properly:
 
-actionmailer (2.3.2)
-actionpack (2.3.2)
-activerecord (2.3.2)
-activeresource (2.3.2)
-activesupport (2.3.2)
-amatch (0.2.5)
-bouncy-castle-java (1.5.0146.1)
-elasticsearch (0.0.0)
-jruby-launcher (1.0.7 java)
-jruby-openssl (0.7.4)
-json (1.5.1 java)
-OptionParser (0.5.1)
-patron (0.4.9)
-rails (2.3.2)
-rake (0.8.7)
-sources (0.0.1)
-Text (1.1.2)
-text (0.2.0)
-uuidtools (1.0.7)
-xml-object (0.9.93)
-yajl-ruby (0.8.2)
+* actionmailer (2.3.2)
+* actionpack (2.3.2)
+* activerecord (2.3.2)
+* activeresource (2.3.2)
+* activesupport (2.3.2)
+* amatch (0.2.5)
+* bouncy-castle-java (1.5.0146.1)
+* elasticsearch (0.0.0)
+* jruby-launcher (1.0.7 java)
+* jruby-openssl (0.7.4)
+* json (1.5.1 java)
+* OptionParser (0.5.1)
+* patron (0.4.9)
+* rails (2.3.2)
+* rake (0.8.7)
+* sources (0.0.1)
+* Text (1.1.2)
+* text (0.2.0)
+* uuidtools (1.0.7)
+* xml-object (0.9.93)
+* yajl-ruby (0.8.2)
 
-<b>IMPORTANT</b>
+<b>IMPORTANT:</b>
 You MUST install the uuidtools version 1.0.7
 
 gem install uuidtools -v=1.0.7
