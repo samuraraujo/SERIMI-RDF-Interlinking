@@ -1,2 +1,45 @@
+<b>Serimi</b> - SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
+  
+<p>
+The interlinking of datasets published in the Linked Data Cloud is a 
+challenging problem and a key factor for the success of the Semantic Web. 
+Manual rule-based methods are the most effective solution for the problem, but 
+they require skilled human data publishers going through a laborious, error 
+prone and time-consuming process for manually describing rules mapping 
+instances between two datasets. Thus, an automatic approach for solving this 
+problem is more than welcome. In this paper, we propose a novel interlinking 
+method, SERIMI, for solving this problem automatically. SERIMI matches 
+instances between a source and a target datasets, without prior knowledge of the 
+data, domain or schema of these datasets. Experiments conducted with 
+benchmark collections demonstrate that our approach considerably outperforms 
+state-of-the-art automatic approaches for solving the interlinking problem on 
+the Linked Data Cloud. 
+</p>
+
 In this repository we encounter the SERIMI interlinking script. 
-We also encounter the reference alignment for Dailymed-TCM that we fixed. 
+We also encounter the reference alignment for Dailymed-TCM that we fixed.
+
+<b>Installation instruction</b>
+
+<b>Usage</b>
+
+Usage: serimi.rb [options] 
+
+Example of use: 
+ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.
+org/mondial/10/meta#Country 
+
+Parameters
+    -v, --verbose                    Output more information
+    -s, --source SPARQL_URI          Source Virtuoso sparql endpoint - URI
+    -t, --target SPARQL_URI          Target Virtuoso sparql endpoint - URI
+    -c, --class URI                  Source class for interlink - URI
+    -o, --output FILE                Write output to FILE - Default=./output.txt
+    -k, --chunk value                Chunk size - Default=20
+    -b, --offset value               Start processing from a specific offset - Default=0
+    -x, --string-threshold value     String distance threshold between [0,1] - Default=0.7
+    -y, --rds-threshold value        RDS threshold between [0,1] - Default=max(media,mean)
+    -l, --logfile FILE               Write log to FILE
+    -h, --help                       Display this screen
+
+TO BE UPDATED

@@ -1,0 +1,54 @@
+require 'rubygems'
+
+# ActiveRDF loader
+
+# determine the directory in which we are running depending on cruby or jruby
+if RUBY_PLATFORM =~ /xjava/
+  # jruby can not follow symlinks, because java does not know the symlink concept
+  this_dir = File.dirname(File.expand_path(__FILE__))
+else
+  file = File.symlink?(__FILE__) ? File.readlink(__FILE__) : __FILE__
+  this_dir = File.dirname(File.expand_path(file))
+end
+
+# set the load path, which uses the running directory, but has to be different if running on jruby directly from source.
+if RUBY_PLATFORM =~ /xjava/ and Gem::cache.search(/^activerdf$/).empty?
+  $: << this_dir + '/activerdf/lib/'
+  $: << this_dir + '/activerdf/lib/active_rdf'
+else
+  $: << this_dir + '/'
+  $: << this_dir + '/active_rdf'
+end
+
+require 'active_rdf_helpers'
+require 'active_rdf_log'
+
+$activerdflog.info "ActiveRDF started, logging level: #{$activerdflog.level}"
+
+# load standard classes that need to be loaded at startup
+require 'objectmanager/resource'
+require 'objectmanager/bnode'
+require 'objectmanager/literal'
+require 'objectmanager/namespace'
+require 'federation/connection_pool'
+require 'queryengine/query'
+require 'federation/active_rdf_adapter'
+
+
+
+def load_adapter s
+  begin
+    require s
+  rescue Exception => e
+    $activerdflog.info "could not load adapter #{s}: #{e}"
+  end
+end
+
+if RUBY_PLATFORM =~ /xjava/
+  load_adapter this_dir + '/activerdf/activerdf-jena/lib/activerdf_jena/init'
+  load_adapter this_dir + '/activerdf/activerdf-sparql/lib/activerdf_sparql/sparql'
+else
+
+  load_adapter this_dir + '/../activerdf-sparql/lib/activerdf_sparql/sparql'
+end
+
