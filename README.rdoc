@@ -17,9 +17,14 @@ the Linked Data Cloud.
 In this repository we encounter the SERIMI interlinking script. 
 We also encounter the reference alignment for Dailymed-TCM that we fixed.
 
-== Installation instructions
+== Requirements 
 
-Serimi ONLY works over Virtuoso Sparql Endpoints. Therefore, you need to load your data on a Virtuoso Openlink server (download here [http://sourceforge.net/projects/virtuoso/files/]) if you want to use this tool.
+=== 1.Data repository 
+Serimi ONLY works over Virtuoso Sparql Endpoints. Therefore, you need to load your data on a Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) if you want to use this tool.
+
+=== 2. Jruby
+
+Serimi is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the RVM[https://rvm.beginrescueend.com/].
 
 == Usage
 
