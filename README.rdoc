@@ -1,6 +1,5 @@
 == SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
-  
-<p>
+   
 The interlinking of datasets published in the Linked Data Cloud is a 
 challenging problem and a key factor for the success of the Semantic Web. 
 Manual rule-based methods are the most effective solution for the problem, but 
@@ -14,12 +13,13 @@ data, domain or schema of these datasets. Experiments conducted with
 benchmark collections demonstrate that our approach considerably outperforms 
 state-of-the-art automatic approaches for solving the interlinking problem on 
 the Linked Data Cloud. 
-</p>
 
 In this repository we encounter the SERIMI interlinking script. 
 We also encounter the reference alignment for Dailymed-TCM that we fixed.
 
 == Installation instructions
+
+Serimi ONLY works over Virtuoso Sparql Endpoints. Therefore, you need to load your data on a Virtuoso Openlink server (download here [http://sourceforge.net/projects/virtuoso/files/]) if you want to use this tool.
 
 == Usage
 
