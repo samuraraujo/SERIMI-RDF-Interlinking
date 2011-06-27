@@ -28,7 +28,7 @@ Serimi is a Ruby application and demands the Jruby version of ruby. We recommend
 
 === 3. Gems
 
-We have to install the following gems in order to make Serimi work properly:
+We have to install the following gems in order to make Serimi works properly:
 
 * actionmailer (2.3.2)
 * actionpack (2.3.2)
