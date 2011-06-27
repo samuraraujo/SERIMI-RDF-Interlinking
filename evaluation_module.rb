@@ -1,10 +1,11 @@
 #Serimi Functionalities.
 #Author: Samur Araujo
-#Date: 10 April 2011. 
+#Date: 10 April 2011.
 # load File.dirname(File.expand_path(__FILE__)) + "/active_rdf/lib/active_rdf.rb"
 require './active_rdf/lib/active_rdf'
 require './activerdf_sparql-1.3.6/lib/activerdf_sparql/init'
 require 'active_support/inflector'
+
 $label=["?p"]
 module Evaluation_Module
   $session = Hash.new
@@ -24,13 +25,12 @@ module Evaluation_Module
   end
 
   def initialize(params)
- 
+
     $output=params[:output]
     $removelabels=[]
     $t1=Time.now
     count = 0
     manual_offset=0
-     
 
     origin_endpoint=params[:source]
 
@@ -38,7 +38,7 @@ module Evaluation_Module
 
     $session[:source] = mount_adapter(origin_endpoint,:post,false)
     $session[:target] = mount_adapter(target_endpoint,:post,false)
-  
+
     classes = Query.new.adapters($session[:source]).sparql("select distinct ?o where {?s a ?o}").execute
     limit = params[:chunk]
 
@@ -75,7 +75,6 @@ module Evaluation_Module
 
       $offset=manual_offset if manual_offset >0
       offset = $offset.to_i  if $offset != nil
-      
 
       puts "STARTING FROM OFFSET " + offset.to_s
       puts "NUMBER OF INSTANCES"
@@ -109,14 +108,14 @@ module Evaluation_Module
 
         $subjects=subjects.map{|x| x[0].label}
         web_build_sample(data,subjects)
-      # break if offset > 60
-      break
+        # break if offset > 60
+        break
       end
       puts "LAST OFFSET PROCESSED"
       puts $offset
       puts limit
       $offset =nil
-      $lastclass=nil 
+      $lastclass=nil
     }
 
     puts $t2=Time.now
@@ -414,8 +413,12 @@ module Evaluation_Module
         ##################################################
         svm.each_index{|i|
           line = svm[i]
-          f.write(subjects[idx].to_s.gsub(/[<>]/,"") + "=" + groupedsubjects[i].to_s.gsub(/[<>]/,"") + "\n" ) if line >=  final_threshold
-        # f.write(subjects[idx].to_s.gsub(/[<>]/,"") + "=" + groupedsubjects[i].to_s.gsub(/[<>]/,"") + "\n" ) if line >= $T1
+          if $format == "txt"
+            f.write(subjects[idx].to_s.gsub(/[<>]/,"") + "=" + groupedsubjects[i].to_s.gsub(/[<>]/,"") + "\n" ) if line >=  final_threshold
+          # f.write(subjects[idx].to_s.gsub(/[<>]/,"") + "=" + groupedsubjects[i].to_s.gsub(/[<>]/,"") + "\n" ) if line >= $T1
+          else
+                f.write(subjects[idx].to_s  + " <http://www.w3.org/2002/07/owl#sameAs> " + groupedsubjects[i].to_s + ".\n" ) if line >=  final_threshold
+          end
         }
       }
     }
@@ -475,14 +478,15 @@ module Evaluation_Module
     adapter=nil
 
     adapter = ConnectionPool.add_data_source :type => :sparql, :engine => :virtuoso, :title=> endpoint , :url =>  endpoint, :results => :sparql_xml, :caching => cache , :request_method => method
-  
+
     return adapter
   end
 
   def order()
     check_result("sider","dailymed")
   end
-end 
+end
+
 String.class_eval do
   def singularize
     ActiveSupport::Inflector.singularize(self)

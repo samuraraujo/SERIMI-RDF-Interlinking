@@ -39,6 +39,10 @@ opts = OptionParser.new do |opts|
     opts.on( '-o FILE_NAME', '--output FILE', String, 'Write output to FILE - Default=./output.txt' ) do |file|
     options[:output] = file
   end
+  options[:format] = "txt"
+  opts.on( '-f', '--output-format value', String, 'Output format: txt, nt. Default=txt' ) do |c|
+    options[:format] = c
+  end
    options[:chunk] = 20
   opts.on( '-k', '--chunk value', Integer, 'Chunk size - Default=20' ) do |c|
     options[:chunk] = c
