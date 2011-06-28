@@ -32,18 +32,14 @@ ALL COMMANDS ARE COMPULSORY
 
  checkpoint_interval(-1);
  DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
- DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();
-	
+ DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();	
  CREATE BITMAP index RDF_QUAD_POGS on DB.DBA.RDF_QUAD (P,O,G,S);
  CREATE BITMAP index RDF_QUAD_PSOG on DB.DBA.RDF_QUAD (P,S,O,G);
- CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);
-	
+ CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);	
  //For RDF format
- DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/home/user/samur/data/all-geonames.rdf'), '', 'http://geonames.org');
-	
+ DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/tmp/all-geonames.rdf'), '', 'http://geonames.org');	
  //For NT format
- DB.DBA.TTLP_MT (file_to_string_output ('/home/user/samur/data/all-geonames.ttl'), '','http://geonames.org');
-	
+ DB.DBA.TTLP_MT (file_to_string_output ('/tmp/all-geonames.ttl'), '','http://geonames.org');
  checkpoint;
  checkpoint_interval(30);
 
