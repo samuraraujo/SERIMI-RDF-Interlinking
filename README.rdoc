@@ -22,6 +22,31 @@ We also encounter the reference alignment for Dailymed-TCM that we fixed.
 === 1. Data repository 
 Serimi ONLY works over Virtuoso Sparql Endpoints. Therefore, you need to load your data on a Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) if you want to use this tool.
 
+How To Load RDF Data into Virtuoso?
+
+This example assumes that you are loading the Geonames into Virtuoso.  
+
+Note that virtuoso does not have one repository for each dataset. It has just one repository and it organizes the datasets in NAMED GRAPH. 
+
+ALL COMMANDS ARE COMPULSORY 
+
+checkpoint_interval(-1);
+DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
+DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();
+
+CREATE BITMAP index RDF_QUAD_POGS on DB.DBA.RDF_QUAD (P,O,G,S);
+CREATE BITMAP index RDF_QUAD_PSOG on DB.DBA.RDF_QUAD (P,S,O,G);
+CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);
+
+//For RDF format
+DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/home/user/samur/data/all-geonames.rdf'), '', 'http://geonames.org');
+
+//For NT format
+DB.DBA.TTLP_MT (file_to_string_output ('/home/user/samur/data/all-geonames.ttl'), '','http://geonames.org');
+
+checkpoint;
+checkpoint_interval(30);
+
 === 2. JRuby
 
 Serimi is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the RVM[https://rvm.beginrescueend.com/].
