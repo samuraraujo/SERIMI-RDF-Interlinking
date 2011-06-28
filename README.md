@@ -1,6 +1,6 @@
 # SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
 
-![Serimi](https://github.com/samuraraujo/SERIMI-RDF-Interlinking/raw/master/image.png)
+[Serimi](https://github.com/samuraraujo/SERIMI-RDF-Interlinking/raw/master/image.png)
    
 The interlinking of datasets published in the Linked Data Cloud is a 
 challenging problem and a key factor for the success of the Semantic Web. 
