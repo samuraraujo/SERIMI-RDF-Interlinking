@@ -84,6 +84,13 @@ You can download the source code of SERIMI using the Git command below. For that
 
  git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
 
+=== Testing the installation
+
+Go to the root of the directory where you execute the command above and type:
+
+ ruby serimi.rb
+
+If everything is fine, this command will print help information about Serimi. Below you find information how to use it.
  
 == Usage
 
