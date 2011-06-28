@@ -33,7 +33,7 @@ This example assumes that you are loading the Geonames into Virtuoso.
 
 Note that virtuoso does not have a repository for each dataset. It has just a repository and it organizes the datasets in NAMED GRAPH. The example below, load data into the http://geonames.org Named Graph.
 
-ALL COMMANDS ARE COMPULSORY 
+ALL COMMANDS ARE COMPULSORIES
 
 	checkpoint_interval(-1);
 	DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
