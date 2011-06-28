@@ -25,6 +25,8 @@ Serimi ONLY works over Virtuoso Openlink server ({download here}[http://sourcefo
 
 How To Load RDF Data into Virtuoso?
 
+If you want to try Serimi over you own data, you have to load your data into a Virtuoso server.
+
 This example assumes that you are loading the Geonames into Virtuoso.  
 
 Note that virtuoso does not have a repository for each dataset. It has just a repository and it organizes the datasets in NAMED GRAPH. The example below, load data into the http://geonames.org Named Graph.
