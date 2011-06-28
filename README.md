@@ -23,15 +23,15 @@ You also encounter the reference alignment for Dailymed-TCM that we fixed.
 # Requirements 
 
 ### 1. Data repository 
-Serimi ONLY works over Virtuoso Openlink server ([download here](http://sourceforge.net/projects/virtuoso/files/)) Sparql Endpoints. Therefore, you need to provide as target for the interlinking a Virtuoso endpoint if you want to use this tool.
+Serimi ONLY works over Virtuoso Openlink server ([download here](http://sourceforge.net/projects/virtuoso/files/)) Sparql Endpoints. Therefore, you need to provide to Serimi, as target for the interlinking, a Virtuoso Sparql endpoint.
 
 How To Load RDF Data into Virtuoso?
 
-If you want to try Serimi over you own data, you have to load your data into a Virtuoso server.
+If you want to try Serimi over you own data, you have to load your data into a Virtuoso server. Below we show how to do it.
 
 This example assumes that you are loading the Geonames into Virtuoso.  
 
-Note that virtuoso does not have a repository for each dataset. It has just a repository and it organizes the datasets in NAMED GRAPH. The example below, load data into the http://geonames.org Named Graph.
+Notice that virtuoso does not have a unique repository for each dataset. It has just a repository and it organizes the datasets in different NAMED GRAPHS. The example below loads the data into the http://geonames.org Named Graph.
 
 ALL COMMANDS ARE COMPULSORIES
 
@@ -89,7 +89,7 @@ You can download the source code of SERIMI using the Git command below. For that
 
 	git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
  
-You can also download it by clicking in the button DOWNLOAD in this page.
+You can also download it by clicking in the button DOWNLOADS on the top of this page.
 
 ## Testing the installation
 
@@ -116,7 +116,7 @@ Parameters
 	-t, --target SPARQL_URI          Target Virtuoso sparql endpoint - URI
 	-c, --class URI                  Source class for interlink - URI
 	-o, --output FILE                Write output to FILE - Default=./output.txt
-	-f, --output-format value        Output format: txt, nt. Default=txt
+	-f, --output-format value        Output format: txt or nt. Default=txt
 	-k, --chunk value                Chunk size - Default=20
 	-b, --offset value               Start processing from a specific offset - Default=0
 	-x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
@@ -131,6 +131,10 @@ You can change the value of thresholds used in Serimi. The are two parameters fo
 -x: allow you to define a threshold for the string distance function applied in Serimi. Serimi selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
 
 -y: allow you to define a threshold for the RDS function implemented in Serimi. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
+
+### Output
+
+Serimi outputs the interlinks in external file. It accept two output format (text or nt). You configure the output format using -f parameter.
 
 ## Issues
 
