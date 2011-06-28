@@ -294,7 +294,8 @@ module RDFS
         end
         return namespace
       end
-      all_instance_predicates.each do |pred|        
+      all_instance_predicates.each do |pred|    
+        next if methodname == "to_i"    
         if Namespace.localname(pred) == methodname
  
           if update

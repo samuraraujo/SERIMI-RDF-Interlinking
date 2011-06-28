@@ -27,6 +27,7 @@ module Evaluation_Module
   def initialize(params)
 
     $output=params[:output]
+    $format=params[:format]
     $removelabels=[]
     $t1=Time.now
     count = 0
