@@ -134,7 +134,7 @@ You can change the value of thresholds used in Serimi. The are two parameters fo
 
 ### Output
 
-Serimi outputs the interlinks in external file. It accept two output format (text or nt). You configure the output format using -f parameter.
+Serimi outputs the interlinks in an external file (output.txt is the default). It accept two output formats (text or nt). You can configure the output format using -f parameter.
 
 ## Issues
 
