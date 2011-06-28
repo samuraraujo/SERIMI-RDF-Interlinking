@@ -1,6 +1,6 @@
 # SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
 
-[Serimi](https://github.com/samuraraujo/SERIMI-RDF-Interlinking/raw/master/image.png)
+![](https://github.com/samuraraujo/SERIMI-RDF-Interlinking/raw/master/image.png)
    
 The interlinking of datasets published in the Linked Data Cloud is a 
 challenging problem and a key factor for the success of the Semantic Web. 
@@ -22,7 +22,7 @@ You also encounter the reference alignment for Dailymed-TCM that we fixed.
 
 # Requirements 
 
-## 1. Data repository 
+### 1. Data repository 
 Serimi ONLY works over Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) Sparql Endpoints. Therefore, you need to provide as target for the interlinking a Virtuoso endpoint if you want to use this tool.
 
 How To Load RDF Data into Virtuoso?
@@ -48,11 +48,11 @@ ALL COMMANDS ARE COMPULSORY
  checkpoint;
  checkpoint_interval(30);
 
-=== 2. JRuby
+### 2. JRuby
 
 Serimi is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the RVM[https://rvm.beginrescueend.com/].
 
-=== 3. Gems
+### 3. Gems
 
 After install JRuby, you have to install the following gems in order to make Serimi works properly:
 
@@ -83,7 +83,7 @@ You MUST install the uuidtools version 1.0.7
 
 gem install uuidtools -v=1.0.7
 
-== Installation
+## Installation
 
 You can download the source code of SERIMI using the Git command below. For that you need to install the Git in your computer.
 
@@ -91,7 +91,7 @@ You can download the source code of SERIMI using the Git command below. For that
  
 You can also download it by clicking in the button DOWNLOAD in this page.
 
-=== Testing the installation
+## Testing the installation
 
 Go to the root of the directory where you executed the command above and type:
 
@@ -99,7 +99,7 @@ Go to the root of the directory where you executed the command above and type:
 
 If everything is fine, this command will print help information about Serimi. Below you find information about how to use Serimi.
  
-== Usage
+## Usage
 
 Usage: serimi.rb [options] 
 
@@ -124,7 +124,7 @@ Parameters
     -l, --logfile FILE               Write log to FILE
     -h, --help                       Display this screen
 
-=== Advanced use
+### Advanced use
 
 You can change the value of thresholds used in Serimi. The are two parameters for this:
 
@@ -132,6 +132,6 @@ You can change the value of thresholds used in Serimi. The are two parameters fo
 
 -y: allow you to define a threshold for the RDS function implemented in Serimi. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
 
-== Issues
+## Issues
 
 To report any issue about this tool you can use this system: https://github.com/samuraraujo/SERIMI-RDF-Interlinking/issues
