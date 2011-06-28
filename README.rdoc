@@ -1,9 +1,5 @@
 == SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
 
-Screen shots
-===
-CSS Dark
----
 ![Serimi](https://github.com/samuraraujo/SERIMI-RDF-Interlinking/raw/master/image.png)
    
 The interlinking of datasets published in the Linked Data Cloud is a 
