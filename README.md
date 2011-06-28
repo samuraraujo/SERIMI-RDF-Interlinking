@@ -1,4 +1,4 @@
-== SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
+# SERIMI – Resource Description Similarity, RDF Instance Matching and Interlinking  
 
 ![Serimi](https://github.com/samuraraujo/SERIMI-RDF-Interlinking/raw/master/image.png)
    
@@ -20,7 +20,7 @@ In this repository you encounter the SERIMI interlinking script.
 
 You also encounter the reference alignment for Dailymed-TCM that we fixed.
 
-== Requirements 
+# Requirements 
 
 === 1. Data repository 
 Serimi ONLY works over Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) Sparql Endpoints. Therefore, you need to provide as target for the interlinking a Virtuoso endpoint if you want to use this tool.
