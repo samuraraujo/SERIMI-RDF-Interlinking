@@ -86,6 +86,8 @@ gem install uuidtools -v=1.0.7
 You can download the source code of SERIMI using the Git command below. For that you need to install the Git in your computer.
 
  git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
+ 
+You can also download it by clicking in the button DOWNLOAD in this page.
 
 === Testing the installation
 
@@ -127,3 +129,7 @@ You can change the value of thresholds used in Serimi. The are two parameters fo
 -x: allow you to define a threshold for the string distance function applied in Serimi. Serimi selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
 
 -y: allow you to define a threshold for the RDS function implemented in Serimi. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
+
+== Issues
+
+To report any issue about this tool you can use this system: https://github.com/samuraraujo/SERIMI-RDF-Interlinking/issues

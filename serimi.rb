@@ -52,11 +52,11 @@ opts = OptionParser.new do |opts|
     options[:offset] = c
   end
    options[:stringthreshold] = 0.7
-  opts.on( '-x', '--string-threshold value', Float, 'String distance threshold. A value between [0,1] - Default=0.7' ) do |c|
+  opts.on( '-x', '--string-threshold value', Float, 'String distance threshold. A value between (0,1) - Default=0.7' ) do |c|
     options[:stringthreshold] = c
   end
    options[:rdsthreshold] = nil
-  opts.on( '-y', '--rds-threshold value', Float, 'RDS threshold. A value between [0,1] - Default=max(media,mean)' ) do |c|
+  opts.on( '-y', '--rds-threshold value', Float, 'RDS threshold. A value between (0,1) - Default=max(media,mean)' ) do |c|
     options[:rdsthreshold] = c
   end
   
