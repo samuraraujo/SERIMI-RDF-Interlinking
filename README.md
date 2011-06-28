@@ -105,8 +105,7 @@ Usage: serimi.rb [options]
 
 Example of use: 
 
-	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org 
-	-c http://www.semwebtech.org/mondial/10/meta#Country 
+	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.org/mondial/10/meta#Country 
 	
 In the example above, the source is a local endpoint, the target is the DBPedia endpoint , and the source class to be interlinked is the class country.
 
