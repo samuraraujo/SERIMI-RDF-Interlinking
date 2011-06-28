@@ -93,7 +93,7 @@ Go to the root of the directory where you executed the command above and type:
 
  ruby serimi.rb
 
-If everything is fine, this command will print help information about Serimi. Below you find information how to use it.
+If everything is fine, this command will print help information about Serimi. Below you find information about how to use Serimi.
  
 == Usage
 
