@@ -28,10 +28,12 @@ module Evaluation_Module
 
     $output=params[:output]
     $format=params[:format]
+    $filter_threshold=params[:stringthreshold]
+    $rdsthreshold=params[:rdsthreshold]
     $removelabels=[]
     $t1=Time.now
     count = 0
-    manual_offset=0
+    manual_offset=params[:offset]
 
     origin_endpoint=params[:source]
 
@@ -109,8 +111,8 @@ module Evaluation_Module
 
         $subjects=subjects.map{|x| x[0].label}
         web_build_sample(data,subjects)
-        # break if offset > 60
-        # break
+      # break if offset > 60
+      # break
       end
       puts "LAST OFFSET PROCESSED"
       puts $offset
@@ -414,11 +416,12 @@ module Evaluation_Module
         ##################################################
         svm.each_index{|i|
           line = svm[i]
+          final_threshold=  $rdsthreshold if $rdsthreshold != nil
           if $format == "txt"
             f.write(subjects[idx].to_s.gsub(/[<>]/,"") + "=" + groupedsubjects[i].to_s.gsub(/[<>]/,"") + "\n" ) if line >=  final_threshold
           # f.write(subjects[idx].to_s.gsub(/[<>]/,"") + "=" + groupedsubjects[i].to_s.gsub(/[<>]/,"") + "\n" ) if line >= $T1
           else
-                f.write(subjects[idx].to_s  + " <http://www.w3.org/2002/07/owl#sameAs> " + groupedsubjects[i].to_s + ".\n" ) if line >=  final_threshold
+            f.write(subjects[idx].to_s  + " <http://www.w3.org/2002/07/owl#sameAs> " + groupedsubjects[i].to_s + ".\n" ) if line >=  final_threshold
           end
         }
       }
@@ -487,6 +490,7 @@ module Evaluation_Module
     check_result("sider","dailymed")
   end
 end
+
 
 String.class_eval do
   def singularize
