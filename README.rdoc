@@ -26,7 +26,7 @@ How To Load RDF Data into Virtuoso?
 
 This example assumes that you are loading the Geonames into Virtuoso.  
 
-Note that virtuoso does not have one repository for each dataset. It has just one repository and it organizes the datasets in NAMED GRAPH. 
+Note that virtuoso does not have a repository for each dataset. It has just a repository and it organizes the datasets in NAMED GRAPH. 
 
 ALL COMMANDS ARE COMPULSORY 
 
