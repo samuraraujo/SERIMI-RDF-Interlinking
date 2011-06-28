@@ -86,7 +86,7 @@ You can download the source code of SERIMI using the Git command below. For that
 
 === Testing the installation
 
-Go to the root of the directory where you execute the command above and type:
+Go to the root of the directory where you executed the command above and type:
 
  ruby serimi.rb
 
@@ -117,4 +117,10 @@ Parameters
     -l, --logfile FILE               Write log to FILE
     -h, --help                       Display this screen
 
-TO BE UPDATED
+== Advanced use
+
+You can change the value of thresholds used in Serimi. The are two parameter for that:
+
+-x: allow you to define a threshold for the string distance function applied in Serimi. Serimi selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
+
+-y: allow you to define a threshold for the RDS function implemented in Serimi. Currently the value for this parameter is computed automatically. You can enforce a specific value for this parameter. You can define a value between (0,1).
