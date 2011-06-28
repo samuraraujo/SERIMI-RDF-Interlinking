@@ -80,7 +80,9 @@ gem install uuidtools -v=1.0.7
 
 == Installation
 
-You can download the source code of SERIMI using the Git command below. For that you need to install the Git your computer.
+You can download the source code of SERIMI using the Git command below. For that you need to install the Git in your computer.
+
+ git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
 
  
 == Usage
