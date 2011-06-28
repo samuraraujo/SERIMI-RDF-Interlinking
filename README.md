@@ -22,7 +22,7 @@ You also encounter the reference alignment for Dailymed-TCM that we fixed.
 
 # Requirements 
 
-=== 1. Data repository 
+## 1. Data repository 
 Serimi ONLY works over Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) Sparql Endpoints. Therefore, you need to provide as target for the interlinking a Virtuoso endpoint if you want to use this tool.
 
 How To Load RDF Data into Virtuoso?
