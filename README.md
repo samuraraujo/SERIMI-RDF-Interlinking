@@ -35,18 +35,18 @@ Note that virtuoso does not have a repository for each dataset. It has just a re
 
 ALL COMMANDS ARE COMPULSORY 
 
- checkpoint_interval(-1);
- DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
- DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();	
- CREATE BITMAP index RDF_QUAD_POGS on DB.DBA.RDF_QUAD (P,O,G,S);
- CREATE BITMAP index RDF_QUAD_PSOG on DB.DBA.RDF_QUAD (P,S,O,G);
- CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);	
- //For RDF format
- DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/tmp/all-geonames.rdf'), '', 'http://geonames.org');	
- //For NT format
- DB.DBA.TTLP_MT (file_to_string_output ('/tmp/all-geonames.ttl'), '','http://geonames.org');
- checkpoint;
- checkpoint_interval(30);
+	checkpoint_interval(-1);
+	DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
+	DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();	
+	CREATE BITMAP index RDF_QUAD_POGS on DB.DBA.RDF_QUAD (P,O,G,S);
+	CREATE BITMAP index RDF_QUAD_PSOG on DB.DBA.RDF_QUAD (P,S,O,G);
+	CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);	
+	//For RDF format
+	DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/tmp/all-geonames.rdf'), '', 'http://geonames.org');	
+	//For NT format
+	DB.DBA.TTLP_MT (file_to_string_output ('/tmp/all-geonames.ttl'), '','http://geonames.org');
+	checkpoint;
+	checkpoint_interval(30);
 
 ### 2. JRuby
 
@@ -81,13 +81,13 @@ After install JRuby, you have to install the following gems in order to make Ser
 <b>IMPORTANT:</b>
 You MUST install the uuidtools version 1.0.7
 
-gem install uuidtools -v=1.0.7
+	gem install uuidtools -v=1.0.7
 
 ## Installation
 
 You can download the source code of SERIMI using the Git command below. For that you need to install the Git in your computer.
 
- git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
+	git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
  
 You can also download it by clicking in the button DOWNLOAD in this page.
 
@@ -95,7 +95,7 @@ You can also download it by clicking in the button DOWNLOAD in this page.
 
 Go to the root of the directory where you executed the command above and type:
 
- ruby serimi.rb
+	ruby serimi.rb
 
 If everything is fine, this command will print help information about Serimi. Below you find information about how to use Serimi.
  
@@ -105,24 +105,23 @@ Usage: serimi.rb [options]
 
 Example of use: 
 
- ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org
- -c http://www.semwebtech.org/mondial/10/meta#Country 
+	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.org/mondial/10/meta#Country 
 
 In the example above, the source is a local endpoint, the target is the DBPedia endpoint , and the source class to be interlinked is the class country.
 
 Parameters
-    -v, --verbose                    Output more information
-    -s, --source SPARQL_URI          Source Virtuoso sparql endpoint - URI
-    -t, --target SPARQL_URI          Target Virtuoso sparql endpoint - URI
-    -c, --class URI                  Source class for interlink - URI
-    -o, --output FILE                Write output to FILE - Default=./output.txt
-    -f, --output-format value        Output format: txt, nt. Default=txt
-    -k, --chunk value                Chunk size - Default=20
-    -b, --offset value               Start processing from a specific offset - Default=0
-    -x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
-    -y, --rds-threshold value        RDS threshold. A value between (0,1) - Default=max(media,mean)
-    -l, --logfile FILE               Write log to FILE
-    -h, --help                       Display this screen
+	-v, --verbose                    Output more information
+	-s, --source SPARQL_URI          Source Virtuoso sparql endpoint - URI
+	-t, --target SPARQL_URI          Target Virtuoso sparql endpoint - URI
+	-c, --class URI                  Source class for interlink - URI
+	-o, --output FILE                Write output to FILE - Default=./output.txt
+	-f, --output-format value        Output format: txt, nt. Default=txt
+	-k, --chunk value                Chunk size - Default=20
+	-b, --offset value               Start processing from a specific offset - Default=0
+	-x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
+	-y, --rds-threshold value        RDS threshold. A value between (0,1) - Default=max(media,mean)
+	-l, --logfile FILE               Write log to FILE
+	-h, --help                       Display this screen
 
 ### Advanced use
 
