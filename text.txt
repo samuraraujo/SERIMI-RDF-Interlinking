@@ -1,0 +1,3 @@
+<http://www.semwebtech.org/mondial/10/countries/CV/> <http://www.w3.org/2002/07/owl#sameAs> <http://www.daml.org/2001/09/countries/fips#CV>.
+<http://www.semwebtech.org/mondial/10/countries/Z/> <http://www.w3.org/2002/07/owl#sameAs> <http://www.daml.org/2001/09/countries/fips#ZA>.
+<http://www.semwebtech.org/mondial/10/countries/MOC/> <http://www.w3.org/2002/07/owl#sameAs> <http://www.daml.org/2001/09/countries/fips#MZ>.

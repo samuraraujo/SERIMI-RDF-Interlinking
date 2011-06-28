@@ -109,7 +109,7 @@ module Evaluation_Module
         $subjects=subjects.map{|x| x[0].label}
         web_build_sample(data,subjects)
         # break if offset > 60
-        break
+        # break
       end
       puts "LAST OFFSET PROCESSED"
       puts $offset
