@@ -30,22 +30,22 @@ Note that virtuoso does not have one repository for each dataset. It has just on
 
 ALL COMMANDS ARE COMPULSORY 
 
-checkpoint_interval(-1);
-DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
-DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();
-
-CREATE BITMAP index RDF_QUAD_POGS on DB.DBA.RDF_QUAD (P,O,G,S);
-CREATE BITMAP index RDF_QUAD_PSOG on DB.DBA.RDF_QUAD (P,S,O,G);
-CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);
-
-//For RDF format
-DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/home/user/samur/data/all-geonames.rdf'), '', 'http://geonames.org');
-
-//For NT format
-DB.DBA.TTLP_MT (file_to_string_output ('/home/user/samur/data/all-geonames.ttl'), '','http://geonames.org');
-
-checkpoint;
-checkpoint_interval(30);
+	checkpoint_interval(-1);
+	DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
+	DB.DBA.VT_INC_INDEX_DB_DBA_RDF_OBJ ();
+	
+	CREATE BITMAP index RDF_QUAD_POGS on DB.DBA.RDF_QUAD (P,O,G,S);
+	CREATE BITMAP index RDF_QUAD_PSOG on DB.DBA.RDF_QUAD (P,S,O,G);
+	CREATE BITMAP index RDF_QUAD_SOPG on DB.DBA.RDF_QUAD (S,O,P,G);
+	
+	//For RDF format
+	DB.DBA.RDF_LOAD_RDFXML_MT (file_to_string_output ('/home/user/samur/data/all-geonames.rdf'), '', 'http://geonames.org');
+	
+	//For NT format
+	DB.DBA.TTLP_MT (file_to_string_output ('/home/user/samur/data/all-geonames.ttl'), '','http://geonames.org');
+	
+	checkpoint;
+	checkpoint_interval(30);
 
 === 2. JRuby
 
@@ -53,7 +53,7 @@ Serimi is a Ruby application and demands the Jruby version of ruby. We recommend
 
 === 3. Gems
 
-We have to install the following gems in order to make Serimi works properly:
+After install JRuby, you have to install the following gems in order to make Serimi works properly:
 
 * actionmailer (2.3.2)
 * actionpack (2.3.2)
@@ -87,8 +87,11 @@ gem install uuidtools -v=1.0.7
 Usage: serimi.rb [options] 
 
 Example of use: 
-ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.
-org/mondial/10/meta#Country 
+
+	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org
+	-c http://www.semwebtech.org/mondial/10/meta#Country 
+
+In the example above, the source is a local endpoint http://localhost:8890/sparql, the target is the DBPedia endpoint http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org, and the source class to be interlinked is the class country, represented by the URL: http://www.semwebtech.org/mondial/10/meta#Country. 
 
 Parameters
     -v, --verbose                    Output more information
@@ -99,8 +102,8 @@ Parameters
     -f, --output-format value        Output format: txt, nt. Default=txt
     -k, --chunk value                Chunk size - Default=20
     -b, --offset value               Start processing from a specific offset - Default=0
-    -x, --string-threshold value     String distance threshold between [0,1] - Default=0.7
-    -y, --rds-threshold value        RDS threshold between [0,1] - Default=max(media,mean)
+    -x, --string-threshold value     String distance threshold. A value between [0,1] - Default=0.7
+    -y, --rds-threshold value        RDS threshold. A value between [0,1] - Default=max(media,mean)
     -l, --logfile FILE               Write log to FILE
     -h, --help                       Display this screen
 
