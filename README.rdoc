@@ -20,7 +20,7 @@ We also encounter the reference alignment for Dailymed-TCM that we fixed.
 == Requirements 
 
 === 1. Data repository 
-Serimi ONLY works over Virtuoso Sparql Endpoints. Therefore, you need to load your data on a Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) if you want to use this tool.
+Serimi ONLY works over Virtuoso Sparql Endpoints. Therefore, you need to provide the Virtuoso target endpoint load or load your data on a Virtuoso Openlink server ({download here}[http://sourceforge.net/projects/virtuoso/files/]) if you want to use this tool.
 
 How To Load RDF Data into Virtuoso?
 
@@ -78,6 +78,11 @@ You MUST install the uuidtools version 1.0.7
 
 gem install uuidtools -v=1.0.7
 
+== Installation
+
+You can download the source code of SERIMI using the Git command below. For that you need to install the Git your computer.
+
+ 
 == Usage
 
 Usage: serimi.rb [options] 
