@@ -23,7 +23,7 @@ You also encounter the reference alignment for Dailymed-TCM that we fixed.
 # Requirements 
 
 ### 1. Data repository 
-Serimi ONLY works over Virtuoso Openlink server (download here[http://sourceforge.net/projects/virtuoso/files/]) Sparql Endpoints. Therefore, you need to provide as target for the interlinking a Virtuoso endpoint if you want to use this tool.
+Serimi ONLY works over Virtuoso Openlink server ([download here]: http://sourceforge.net/projects/virtuoso/files/) Sparql Endpoints. Therefore, you need to provide as target for the interlinking a Virtuoso endpoint if you want to use this tool.
 
 How To Load RDF Data into Virtuoso?
 
@@ -50,7 +50,7 @@ ALL COMMANDS ARE COMPULSORY
 
 ### 2. JRuby
 
-Serimi is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the RVM[https://rvm.beginrescueend.com/].
+Serimi is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the [RVM]: https://rvm.beginrescueend.com/.
 
 ### 3. Gems
 
@@ -105,7 +105,8 @@ Usage: serimi.rb [options]
 
 Example of use: 
 
-	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.org/mondial/10/meta#Country 
+	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org 
+-c http://www.semwebtech.org/mondial/10/meta#Country 
 
 In the example above, the source is a local endpoint, the target is the DBPedia endpoint , and the source class to be interlinked is the class country.
 
