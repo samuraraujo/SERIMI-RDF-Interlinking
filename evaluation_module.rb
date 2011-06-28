@@ -9,28 +9,17 @@ require 'active_support/inflector'
 $label=["?p"]
 module Evaluation_Module
   $session = Hash.new
-  $logger =  File.open("/Users/samuraraujo/tmp/alignment/logger.txt", 'w')
-  def putsx(str)
-
-    if str.instance_of? Array
-      str.each{|x|
-        $logger.write(x.to_s)
-        $logger.write("\n")
-      }
-    else
-      $logger.write(str.to_s)
-      $logger.write("\n")
-    end
-  # $logger.fsync
-  end
-
+   
   def initialize(params)
 
     $output=params[:output]
     $format=params[:format]
     $filter_threshold=params[:stringthreshold]
     $rdsthreshold=params[:rdsthreshold]
+  
     $removelabels=[]
+      
+    
     $t1=Time.now
     count = 0
     manual_offset=params[:offset]
