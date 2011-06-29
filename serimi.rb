@@ -47,7 +47,7 @@ opts = OptionParser.new do |opts|
     options[:format] = c
   end
   options[:chunk] = 20
-  opts.on( '-k', '--chunk value', Integer, 'Chunk size - Default=20' ) do |c|
+  opts.on( '-k', '--chunk value', Integer, 'Chunk size, a value >= 2 - Default=20' ) do |c|
     options[:chunk] = c
   end
   options[:offset] = 0

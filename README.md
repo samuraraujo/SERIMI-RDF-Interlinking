@@ -105,9 +105,10 @@ Usage: serimi.rb [options]
 
 Example of use: 
 
-	ruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.org/mondial/10/meta#Country 
+	ruby serimi.rb -s http://www4.wiwiss.fu-berlin.de/sider/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www4.wiwiss.fu-berlin.de/sider/resource/sider/drugs  
 	
-In the example above, the source is a local endpoint, the target is the DBPedia endpoint , and the source class to be interlinked is the class country.
+In the example above, the source is the Sider endpoint, the target is the DBPedia endpoint , and the source class to be interlinked is the class Drugs. 
+Notice that the performance of the Sider and DBPedia endpoints may delay the output of Serimi.
 
 Parameters
 
@@ -117,7 +118,7 @@ Parameters
 	-c, --class URI                  Source class for interlink - URI
 	-o, --output FILE                Write output to FILE - Default=./output.txt
 	-f, --output-format value        Output format: txt or nt. Default=txt
-	-k, --chunk value                Chunk size - Default=20
+	-k, --chunk value                Chunk size, a value >=2 - Default=20
 	-b, --offset value               Start processing from a specific offset - Default=0
 	-x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
 	-y, --rds-threshold value        RDS threshold. A value between (0,1) - Default=max(media,mean)
@@ -131,6 +132,8 @@ You can change the value of thresholds used in Serimi. The are two parameters fo
 -x: allow you to define a threshold for the string distance function applied in Serimi. Serimi selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
 
 -y: allow you to define a threshold for the RDS function implemented in Serimi. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
+
+-k: allow you to the define the number of instances to be interlinked per interaction. Different values may affect the precision and recall. Small values work better for datasets with a lot of instance sharing a same label. Ex. DBPedia.
 
 ### Output
 
