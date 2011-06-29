@@ -371,9 +371,7 @@ module RDFS
 			nil
 		end
 		# saves instance into datastore
-		def save
-    
-      puts "TESTE1"
+		def save 
 			db = ConnectionPool.write_adapter
 			rdftype = Namespace.lookup(:rdf, :type)
 			types.each do |t|

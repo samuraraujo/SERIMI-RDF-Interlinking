@@ -1,3 +1,6 @@
+#Serimi Functionalities.
+#Author: Samur Araujo
+#Date: 10 April 2011.
 require 'logger'
 require 'optparse'
 require 'optparse/uri'
@@ -6,7 +9,7 @@ options = {}
 
 opts = OptionParser.new do |opts|
 
-  opts.banner = "Usage: serimi.rb [options] \n\nExample of use: \nruby serimi.rb -s http://localhost:8890/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www.semwebtech.org/mondial/10/meta#Country \n"
+  opts.banner = "Usage: serimi.rb [options] \n\nExample of use: \nruby serimi.rb -s http://www4.wiwiss.fu-berlin.de/sider/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www4.wiwiss.fu-berlin.de/sider/resource/sider/drugs \n"
 
   # Define the options, and what they do
   options[:verbose] = false

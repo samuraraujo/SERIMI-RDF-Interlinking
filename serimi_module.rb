@@ -30,6 +30,7 @@ module Serimi_Module
 
     $session[:source] = mount_adapter(origin_endpoint,:post,false)
     $session[:target] = mount_adapter(target_endpoint,:post,false)
+    
 
     classes = Query.new.adapters($session[:source]).sparql("select distinct ?o where {?s a ?o}").execute
     limit = params[:chunk]
@@ -124,7 +125,7 @@ module Serimi_Module
     puts $t2-$t1
     puts "NUMBER OF INSTANCES PROCESSED"
     puts count
-    $logger.fsync
+    $logger.fsync if $logger!=nil
 
   end
  ##############################################################################################################################
@@ -139,10 +140,10 @@ module Serimi_Module
     $subjects=subjects.map{|x| x[0].label}
     $origin_subjects =  subjects.map{|s|
       begin
-        Query.new.adapters($session[:origin]).sparql("select distinct ?p ?o where { #{s} ?p ?o. }").execute
+        Query.new.adapters($session[:source]).sparql("select distinct ?p ?o where { #{s} ?p ?o. }").execute
       rescue Exception => e
         e.message
-        Query.new.adapters($session[:origin]).sparql("select distinct ?p ?o where { #{s} ?p ?o. }").execute
+        Query.new.adapters($session[:source]).sparql("select distinct ?p ?o where { #{s} ?p ?o. }").execute
       end
     }
     rdf2svm_with_meta_properties(data , [])
@@ -491,6 +492,7 @@ module Serimi_Module
   end
 
   def mount_adapter(endpoint, method=:post,cache=true)
+    puts "Mounting adapter for sparql endpoint " + endpoint
     adapter=nil
 
     adapter = ConnectionPool.add_data_source :type => :sparql, :engine => :virtuoso, :title=> endpoint , :url =>  endpoint, :results => :sparql_xml, :caching => cache , :request_method => method
