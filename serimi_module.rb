@@ -1,13 +1,13 @@
 #Serimi Functionalities.
 #Author: Samur Araujo
 #Date: 10 April 2011.
-# load File.dirname(File.expand_path(__FILE__)) + "/active_rdf/lib/active_rdf.rb"
+ 
 require './active_rdf/lib/active_rdf'
 require './activerdf_sparql-1.3.6/lib/activerdf_sparql/init'
 require 'active_support/inflector'
 
 $label=["?p"]
-module Evaluation_Module
+module Serimi_Module
   $session = Hash.new
    
   def initialize(params)
@@ -72,7 +72,7 @@ module Evaluation_Module
       puts "NUMBER OF INSTANCES"
       puts count
 
-      # while offset <= count -150  do
+        get_first_pivot(klass,5, offset, labels)
       while offset <= count    do
         puts "OFFSET"
         $offset=offset
@@ -126,6 +126,28 @@ module Evaluation_Module
     puts count
     $logger.fsync
 
+  end
+ ##############################################################################################################################
+  def get_first_pivot(klass,limit, offset, labels)
+    puts "Obtaining First Pivot"
+    resources  = get_ambiguous(klass,limit, offset, labels)
+
+    subjects = resources[0]
+    data = resources[1]
+    return if data.size == 1 or data.size == 0
+
+    $subjects=subjects.map{|x| x[0].label}
+    $origin_subjects =  subjects.map{|s|
+      begin
+        Query.new.adapters($session[:origin]).sparql("select distinct ?p ?o where { #{s} ?p ?o. }").execute
+      rescue Exception => e
+        e.message
+        Query.new.adapters($session[:origin]).sparql("select distinct ?p ?o where { #{s} ?p ?o. }").execute
+      end
+    }
+    rdf2svm_with_meta_properties(data , [])
+
+    puts "End of Obtaining First Pivot"
   end
 
   ##############################################################################################################################
@@ -398,6 +420,7 @@ module Evaluation_Module
 
         final_threshold = 0.99 if final_threshold == 1
         final_threshold = final_threshold + 0.01 if outliers_threshold == final_threshold
+         final_threshold = mean_and_standard_deviation(svm.map{|v| v if v >=0.1}.compact)[0] if final_threshold < 0.1 and svm.max >= 0.1
         puts "FINAL THRESHOLD - " + idx.to_s
         puts final_threshold
         # max = svm.max
