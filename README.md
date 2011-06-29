@@ -16,14 +16,14 @@ benchmark collections demonstrate that our approach considerably outperforms
 state-of-the-art automatic approaches for solving the interlinking problem on 
 the Linked Data Cloud. 
 
-In this repository you encounter the SERIMI interlinking script. 
+In this repository you encounter the SERIMI interlinking tool. 
 
-You also encounter the reference alignment for Dailymed-TCM that we fixed.
+You also encounter the OAEI 2010 reference alignment for Dailymed-TCM that we fixed.
 
 # Requirements 
 
 ### 1. Data repository 
-Serimi ONLY works over Virtuoso Openlink server ([download here](http://sourceforge.net/projects/virtuoso/files/)) Sparql Endpoints. Therefore, you need to provide to Serimi, as target for the interlinking, a Virtuoso Sparql endpoint.
+Serimi ONLY works over Virtuoso Openlink ([download here](http://sourceforge.net/projects/virtuoso/files/)) Sparql Endpoints. Therefore, you need to provide to Serimi, as target for the interlinking, a Virtuoso Sparql endpoint.
 
 How To Load RDF Data into Virtuoso?
 
@@ -54,7 +54,7 @@ Serimi is a Ruby application and demands the Jruby version of ruby. We recommend
 
 ### 3. Gems
 
-After install JRuby, you have to install the following gems in order to make Serimi works properly:
+After install JRuby, you have to install the following gems:
 
 * actionmailer (2.3.2)
 * actionpack (2.3.2)
@@ -87,13 +87,13 @@ You MUST install the uuidtools version 1.0.7
 
 You can download the source code of SERIMI using the Git command below. For that you need to install the Git in your computer.
 
-	git clone git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
+	git checkout git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
  
 You can also download it by clicking in the button DOWNLOADS on the top of this page.
 
 ## Testing the installation
 
-Go to the root of the directory where you executed the command above and type:
+Go to the root of the Serimi directory and executed the command below:
 
 	ruby serimi.rb
 
@@ -137,7 +137,7 @@ You can change the value of thresholds used in Serimi. The are two parameters fo
 
 ### Output
 
-Serimi outputs the interlinks in an external file (output.txt is the default). It accept two output formats (text or nt). You can configure the output format using -f parameter.
+Serimi outputs the interlinks in an external file (output.txt is the default). It accepts two output formats (text or nt). You can configure the output format using -f parameter.
 
 ## Issues
 
