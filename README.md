@@ -101,7 +101,7 @@ If everything is fine, this command will print help information about SERIMI. Be
  
 ## Usage
 
-Usage: serimi.rb [options] 
+Usage: serimi.rb [parameters] 
 
 Example of use: 
 
