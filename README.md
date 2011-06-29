@@ -23,7 +23,7 @@ You also encounter the OAEI 2010 reference alignment for Dailymed-TCM that we fi
 # Requirements 
 
 ### 1. Data repository 
-Serimi ONLY works over Virtuoso Openlink ([download here](http://sourceforge.net/projects/virtuoso/files/)) Sparql Endpoints. Therefore, you need to provide to Serimi, as target for the interlinking, a Virtuoso Sparql endpoint.
+SERIMI ONLY works over Virtuoso Openlink ([download here](http://sourceforge.net/projects/virtuoso/files/)) Sparql Endpoints. Therefore, you need to provide to SERIMI, as target for the interlinking, a Virtuoso Sparql endpoint.
 
 How To Load RDF Data into Virtuoso?
 
@@ -50,7 +50,7 @@ ALL COMMANDS ARE COMPULSORIES
 
 ### 2. JRuby
 
-Serimi is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the [RVM](https://rvm.beginrescueend.com/).
+SERIMI is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the [RVM](https://rvm.beginrescueend.com/).
 
 ### 3. Gems
 
@@ -93,11 +93,11 @@ You can also download it by clicking in the button DOWNLOADS on the top of this 
 
 ## Testing the installation
 
-Go to the root of the Serimi directory and executed the command below:
+Go to the root of the SERIMI directory and executed the command below:
 
 	ruby serimi.rb
 
-If everything is fine, this command will print help information about Serimi. Below you find information about how to use Serimi.
+If everything is fine, this command will print help information about SERIMI. Below you find information about how to use SERIMI.
  
 ## Usage
 
@@ -108,7 +108,7 @@ Example of use:
 	ruby serimi.rb -s http://www4.wiwiss.fu-berlin.de/sider/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www4.wiwiss.fu-berlin.de/sider/resource/sider/drugs  
 	
 In the example above, the source is the Sider endpoint, the target is the DBPedia endpoint , and the source class to be interlinked is the class Drugs. 
-Notice that the performance of the Sider and DBPedia endpoints may delay the output of Serimi.
+Notice that the performance of the Sider and DBPedia endpoints may delay the output of SERIMI.
 
 Parameters
 
@@ -127,18 +127,22 @@ Parameters
 
 ### Advanced use
 
-You can change the value of thresholds used in Serimi. The are two parameters for this:
+You can change the value of thresholds used in SERIMI. The are two parameters for this:
 
--x: allow you to define a threshold for the string distance function applied in Serimi. Serimi selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
+-x: allow you to define a threshold for the string distance function applied in SERIMI. It selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
 
--y: allow you to define a threshold for the RDS function implemented in Serimi. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
+-y: allow you to define a threshold for the RDS function implemented in SERIMI. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
 
 -k: allow you to the define the number of instances to be interlinked per interaction. Different values may affect the precision and recall. Small values work better for datasets with a lot of instance sharing a same label. Ex. DBPedia.
 
 ### Output
 
-Serimi outputs the interlinks in an external file (output.txt is the default). It accepts two output formats (text or nt). You can configure the output format using -f parameter.
+SERIMI outputs the interlinks in an external file (output.txt is the default). It accepts two output formats (text or nt). You can configure the output format using -f parameter.
 
 ## Issues
 
 To report any issue about this tool you can use this system: https://github.com/samuraraujo/SERIMI-RDF-Interlinking/issues
+
+## License
+SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] license.
+

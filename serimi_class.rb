@@ -1,4 +1,7 @@
-
+#Serimi Functionalities.
+#Author: Samur Araujo
+#Date: 10 April 2011.
+#License: SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] license.
 require 'serimi_module.rb'
 $filter=true
 $filter_threshold=0.7

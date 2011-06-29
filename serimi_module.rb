@@ -1,7 +1,7 @@
 #Serimi Functionalities.
 #Author: Samur Araujo
 #Date: 10 April 2011.
- 
+#License: SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] license. 
 require './active_rdf/lib/active_rdf'
 require './activerdf_sparql-1.3.6/lib/activerdf_sparql/init'
 require 'active_support/inflector'
