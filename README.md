@@ -113,9 +113,9 @@ Notice that the performance of the Sider and DBPedia endpoints may delay the out
 Parameters
 
 	-v, --verbose                    Output more information
-	-s, --source SPARQL_URI          Source Virtuoso sparql endpoint - URI
-	-t, --target SPARQL_URI          Target Virtuoso sparql endpoint - URI
-	-c, --class URI                  Source class for interlink - URI
+    -s, --source URI (MANDATORY)     Source Virtuoso sparql endpoint - URI
+    -t, --target URI (MANDATORY)     Target Virtuoso sparql endpoint - URI
+    -c, --class URI (MANDATORY)      Source class for interlink - URI
 	-o, --output FILE                Write output to FILE - Default=./output.txt
 	-f, --output-format value        Output format: txt or nt. Default=txt
 	-k, --chunk value                Chunk size, a value >=2 - Default=20

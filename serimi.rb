@@ -22,19 +22,19 @@ opts = OptionParser.new do |opts|
     options[:logfile] = file
   end
   options[:source] = nil
-  opts.on( '-s URI', '--source SPARQL_URI', String, 'Source Virtuoso sparql endpoint - URI' ) do |uri|
+  opts.on( '-s URI ', '--source URI (MANDATORY)', String, 'Source Virtuoso sparql endpoint - URI' ) do |uri|
     raise OptionParser::InvalidArgument, uri + ", not a valid URI."  if !(uri =~ /^http[s]?:\/\//)
 
     options[:source] = uri
   end
   options[:target] = nil
-  opts.on( '-t URI', '--target SPARQL_URI', String, 'Target Virtuoso sparql endpoint - URI' ) do |uri|
+  opts.on( '-t URI ', '--target URI (MANDATORY)', String, 'Target Virtuoso sparql endpoint - URI' ) do |uri|
     raise OptionParser::InvalidArgument, uri + ", not a valid URI."  if !(uri =~ /^http[s]?:\/\//)
 
     options[:target] = uri
   end
   options[:class] = nil
-  opts.on( '-c URI', '--class URI',String,  'Source class for interlink - URI' ) do |uri|
+  opts.on( '-c URI ', '--class URI (MANDATORY)',String,  'Source class for interlink - URI' ) do |uri|
     raise OptionParser::InvalidArgument, uri + ", not a valid URI."  if uri == nil || !(uri =~ /^http[s]?:\/\//)
 
     options[:class] = uri
