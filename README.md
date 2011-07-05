@@ -27,13 +27,13 @@ SERIMI ONLY works over Virtuoso Openlink ([download here](http://sourceforge.net
 
 How To Load RDF Data into Virtuoso?
 
-If you want to try Serimi over you own data, you have to load your data into a Virtuoso server. Below we show how to do it.
+To try SERIMI over you own data, you need to load your data into a Virtuoso server. Below we show how to do this.
 
-This example assumes that you are loading the Geonames into Virtuoso.  
+This example assumes that you want to load Geonames RDF dataset into Virtuoso.  
 
-Notice that virtuoso does not have a unique repository for each dataset. It has just a repository and it organizes the datasets in different NAMED GRAPHS. The example below loads the data into the http://geonames.org Named Graph.
+Notice that Virtuoso does not have a unique repository for each dataset. It has just a repository and it organizes the datasets in differents NAMED GRAPHS. The example below loads the data into the http://geonames.org Named Graph.
 
-ALL COMMANDS ARE COMPULSORIES
+ALL COMMANDS ARE COMPULSORY
 
 	checkpoint_interval(-1);
 	DB.DBA.RDF_OBJ_FT_RULE_ADD (null, null, 'index_local');
@@ -50,7 +50,7 @@ ALL COMMANDS ARE COMPULSORIES
 
 ### 2. JRuby
 
-SERIMI is a Ruby application and demands the Jruby version of ruby. We recommend to install JRuby using the [RVM](https://rvm.beginrescueend.com/).
+SERIMI is a Ruby application and demands the JRuby version of ruby. We recommend to install JRuby using the [RVM](https://rvm.beginrescueend.com/).
 
 ### 3. Gems
 
@@ -85,11 +85,11 @@ You MUST install the uuidtools version 1.0.7
 
 ## Installation
 
-You can download the source code of SERIMI using the Git command below. For that you need to install the Git in your computer.
+You can download the source code of SERIMI using the Git command below. For that, you need to install the Git version control in your computer.
 
 	git checkout git://github.com/samuraraujo/SERIMI-RDF-Interlinking.git
  
-You can also download it by clicking in the button DOWNLOADS on the top of this page.
+You can also download SERIMI by clicking in the button DOWNLOADS on the top of this page.
 
 ## Testing the installation
 
@@ -104,7 +104,7 @@ If everything is fine, this command will print help information about SERIMI. Be
 Usage: serimi.rb [parameters] 
 
 Example of use: 
-The following example, shows how you can interlinking the class Drugs from Sider with DBPedia.
+The following example, shows how you can interlink the class Drugs from Sider with DBPedia.
 
 	ruby serimi.rb -s http://www4.wiwiss.fu-berlin.de/sider/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www4.wiwiss.fu-berlin.de/sider/resource/sider/drugs  
 	
@@ -128,21 +128,39 @@ Parameters
 
 ### Advanced use
 
-You can change the value of thresholds used in SERIMI. The are two parameters for this:
+You can change the value of thresholds used in SERIMI. There are three parameters for this:
 
 -x: allow you to define a threshold for the string distance function applied in SERIMI. It selects labels of the sources resources and search for these labels in the target endpoint. This parameter defines how similar the retrieved resources should be with regards to the searched label. You can define a value between (0,1)
 
 -y: allow you to define a threshold for the RDS function implemented in SERIMI. Currently the value for this parameter is computed automatically. You can force a specific value for this parameter. You can define a value between (0,1).
 
--k: allow you to the define the number of instances to be interlinked per interaction. Different values may affect the precision and recall. Small values work better for datasets with a lot of instance sharing a same label. Ex. DBPedia.
+-k: allow you to the define the number of instances to be interlinked per interaction. Different values may affect the precision and recall. Small values work better for datasets with a lot of instances sharing a same label. Ex. DBPedia.
 
 ### Output
 
 SERIMI outputs the interlinks in an external file (output.txt is the default). It accepts two output formats (text or nt). You can configure the output format using -f parameter.
 
+For instance, given the command below:
+
+	ruby serimi.rb -s http://www4.wiwiss.fu-berlin.de/sider/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www4.wiwiss.fu-berlin.de/sider/resource/sider/drugs -f nt
+
+The output would contain the triples:
+
+	<http://www4.wiwiss.fu-berlin.de/sider/resource/drugs/1046> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Pyrazinamide>
+	<http://www4.wiwiss.fu-berlin.de/sider/resource/drugs/104758> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Raltitrexed>
+	<http://www4.wiwiss.fu-berlin.de/sider/resource/drugs/10631> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Medroxyprogesterone_17-acetate>
+	<http://www4.wiwiss.fu-berlin.de/sider/resource/drugs/1065> <http://www.w3.org/2002/07/owl#sameAs>  <http://dbpedia.org/resource/Quinidine>.
+	......
+	......
+	......
+
 ## Issues
 
 To report any issue about this tool you can use this system: https://github.com/samuraraujo/SERIMI-RDF-Interlinking/issues
+
+## Technical Report
+
+TODO
 
 ## License
 SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] license.
