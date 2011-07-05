@@ -19,7 +19,7 @@ the Linked Data Cloud.
 In this repository you encounter:
 
 * the SERIMI tool. 
-* and the OAEI 2010 reference alignment for Dailymed-TCM that we fixed: [dailymed-tcm-modified.txt]
+* and the OAEI 2010 reference alignment for Dailymed-TCM that we fixed: [](dailymed-tcm-modified.txt)
 
 # Requirements 
 
