@@ -16,9 +16,10 @@ benchmark collections demonstrate that our approach considerably outperforms
 state-of-the-art automatic approaches for solving the interlinking problem on 
 the Linked Data Cloud. 
 
-In this repository you encounter the SERIMI interlinking tool. 
+In this repository you encounter:
 
-You also encounter the OAEI 2010 reference alignment for Dailymed-TCM that we fixed.
+* the SERIMI tool. 
+* and the OAEI 2010 reference alignment for Dailymed-TCM that we fixed: [dailymed-tcm-modified.txt]
 
 # Requirements 
 
