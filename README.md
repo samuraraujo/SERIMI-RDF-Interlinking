@@ -161,8 +161,13 @@ To report any issue about this tool you can use this system: https://github.com/
 
 ## Technical Report
 
-TODO
+[Here] (https://github.com/samuraraujo/SERIMI-RDF-Interlinking/tree/master/dailymed-tcm-modified.txt) you can find a technical report about this SERIMI.
 
 ## License
+
 SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] license.
+
+## News
+
+A new version of SERIMI will be available in August.
 
