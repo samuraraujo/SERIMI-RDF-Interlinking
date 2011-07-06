@@ -169,5 +169,5 @@ SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] lice
 
 ## News
 
-A new version of SERIMI will be available in August.
+A new version of SERIMI will be available in August 2011.
 
