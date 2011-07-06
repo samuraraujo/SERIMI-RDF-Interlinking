@@ -161,7 +161,7 @@ To report any issue about this tool you can use this system: https://github.com/
 
 ## Technical Report
 
-[Here] (https://github.com/samuraraujo/SERIMI-RDF-Interlinking/tree/master/dailymed-tcm-modified.txt) you can find a technical report about SERIMI.
+[Here] (https://github.com/samuraraujo/SERIMI-RDF-Interlinking/tree/master/SERIMI-TECH-REPORT-v2.pdf) you can find a technical report about SERIMI.
 
 ## License
 
