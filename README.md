@@ -171,5 +171,5 @@ SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] lice
 
 ## News
 
-A new version of SERIMI release. (git master)
+SERIMI 0.2 released. (git master)
 
