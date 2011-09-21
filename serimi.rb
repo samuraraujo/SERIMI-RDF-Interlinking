@@ -43,12 +43,20 @@ opts = OptionParser.new do |opts|
   opts.on( '-o FILE_NAME', '--output FILE', String, 'Write output to FILE - Default=./output.txt' ) do |file|
     options[:output] = file
   end
+   options[:append] = "w"
+  opts.on( '-a', '--append-output value', String, 'Append output to FILE - A value: a or w  - Default=w' ) do |file|
+    options[:append] = file
+  end
   options[:format] = "txt"
   opts.on( '-f', '--output-format value', String, 'Output format: txt, nt. Default=txt' ) do |c|
     options[:format] = c
   end
   options[:chunk] = 20
   opts.on( '-k', '--chunk value', Integer, 'Chunk size, a value >= 2 - Default=20' ) do |c|
+    options[:chunk] = c
+  end
+   options[:topk] = 0
+  opts.on( '-p', '--top k results', Integer, 'Top K results, a value >= 1 - Default=0' ) do |c|
     options[:chunk] = c
   end
   options[:offset] = 0
