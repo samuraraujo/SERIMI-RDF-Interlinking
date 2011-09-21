@@ -1,3 +1,8 @@
+#Serimi Functionalities.
+#It implements search function used in the matching process
+#Author: Samur Araujo
+#Date: 10 september 2011.
+#License: SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] license. 
 require "matching_module.rb"
 
 def query_by_offset (type, limit, offset)

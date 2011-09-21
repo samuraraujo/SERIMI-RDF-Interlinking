@@ -124,8 +124,7 @@ end
       packed = accents.pack('U*')
       rxp = Regexp.new("[#{packed}]", nil, 'U')
       str.gsub!(rxp, letter)
-    }
-    
+    } 
     str
   end
   def x_similarity(b)
