@@ -118,14 +118,16 @@ Parameters
     -s, --source URI (MANDATORY)     Source Virtuoso sparql endpoint - URI
     -t, --target URI (MANDATORY)     Target Virtuoso sparql endpoint - URI
     -c, --class URI (MANDATORY)      Source class for interlink - URI
-	-o, --output FILE                Write output to FILE - Default=./output.txt
-	-f, --output-format value        Output format: txt or nt. Default=txt
-	-k, --chunk value                Chunk size, a value >=2 - Default=20
-	-b, --offset value               Start processing from a specific offset - Default=0
-	-x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
-	-y, --rds-threshold value        RDS threshold. A value between (0,1) - Default=max(media,mean)
-	-l, --logfile FILE               Write log to FILE
-	-h, --help                       Display this screen
+    -o, --output FILE                Write output to FILE - Default=./output.txt
+    -a, --append-output value        Append output to FILE - A value: a or w  - Default=w
+    -f, --output-format value        Output format: txt, nt. Default=txt
+    -k, --chunk value                Chunk size, a value >= 2 - Default=20
+    -p, --top k results              Top K results, a value >= 1 - Default=0
+    -b, --offset value               Start processing from a specific offset - Default=0
+    -x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
+    -y, --rds-threshold value        RDS threshold. A value between (0,1) - Default=max(media,mean)
+    -l, --logfile FILE               Write log to FILE
+    -h, --help                       Display this screen
 
 ### Advanced use
 
@@ -169,5 +171,5 @@ SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] lice
 
 ## News
 
-A new version of SERIMI will be available in August 2011.
+A new version of SERIMI release. (git master)
 
