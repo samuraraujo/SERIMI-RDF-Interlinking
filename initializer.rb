@@ -54,6 +54,7 @@ module Initializer_Module
       puts " LAST CLASS"
       puts $lastclass
       $pivot = []
+      $bdata=nil 
       $word_by_word_properties=["?p"]
       $pivot_labels = []
       $pivot_subjects = []
