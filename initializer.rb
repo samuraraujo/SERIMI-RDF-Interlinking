@@ -11,11 +11,13 @@ $label=["?p"]
 $session = Hash.new
 module Initializer_Module
   def initialize(params)
+    $usepivot=false
     $topk=params[:topk].to_i 
     $output=params[:output]
     $format=params[:format]
     $filter_threshold=params[:stringthreshold]
     $rdsthreshold=params[:rdsthreshold]
+    $usepivot=true if params[:usepivot] ==  'true'
     if params[:append] == 'w'
       File.delete($output) if  File.exist?($output) 
     end  
@@ -79,8 +81,8 @@ module Initializer_Module
       puts "NUMBER OF INSTANCES"
       puts count
       #GET FIRST PIVOT
-      # get_first_pivot(klass,5, offset, labels)
-      while offset <= count    do
+      get_first_pivot(klass,5, offset, labels) if $usepivot
+      while offset <= count and limit <= count    do
         if offset == 0 
         limit = 5
         elsif offset == 5

@@ -245,7 +245,7 @@ class Serimi
             # v = f[i] / max_featuresbygroup[idx][i]
 
             if    f[i] ==  global_maximum
-               # add_pivot(rdfdata[idx], @searchedlabels[idx] ,subidx)
+               add_pivot(rdfdata[idx], @searchedlabels[idx] ,subidx) if $usepivot
             end
           end
           line = line + "#{i+1}:#{v} " if !v.nan?

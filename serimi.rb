@@ -52,11 +52,11 @@ opts = OptionParser.new do |opts|
     options[:format] = c
   end
   options[:chunk] = 20
-  opts.on( '-k', '--chunk value', Integer, 'Chunk size, a value >= 2 - Default=20' ) do |c|
+  opts.on( '-k', '--chunk value', Integer, 'Number of source instances processed per interaction, a value >= 2 - Default=20' ) do |c|
     options[:chunk] = c
   end
    options[:topk] = 0
-  opts.on( '-p', '--top k results', Integer, 'Top K results, a value >= 1 - Default=0' ) do |c|
+  opts.on( '-p', '--top k results', Integer, 'Return only Top K results, a value >= 1 - Default=0' ) do |c|
     options[:chunk] = c
   end
   options[:offset] = 0
@@ -71,7 +71,10 @@ opts = OptionParser.new do |opts|
   opts.on( '-y', '--rds-threshold value', Float, 'RDS threshold. A value between (0,1) - Default=max(media,mean)' ) do |c|
     options[:rdsthreshold] = c
   end
-
+ options[:usepivot] = 'false'
+  opts.on( '-u', '--use-pivot value', Float, 'Select a pivot to reinvorce the class of interest. A value (false or true) - Default=false' ) do |c|
+    options[:rdsthreshold] = c
+  end
   options[:logfile] = nil
   opts.on( '-l', '--logfile FILE', 'Write log to FILE' ) do |file|
     if file != nil
