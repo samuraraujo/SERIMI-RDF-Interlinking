@@ -174,3 +174,10 @@ SERIMI is distributed under the LGPL[http://www.gnu.org/licenses/lgpl.html] lice
 
 SERIMI 0.2 released. (git master)
 
+## OAEI 2011
+
+We participate in the OAEI 2011. Below you find the list of parameters used in our evaluations:
+
+	-k 10 -p 1
+
+We use the same parameters in all pairs of datasets compared.
