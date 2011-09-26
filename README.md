@@ -127,7 +127,7 @@ Parameters
     -x, --string-threshold value     String distance threshold. A value between (0,1) - Default=0.7
     -y, --rds-threshold value        RDS threshold. A value between (0,1) - Default=max(media,mean)
     -u, --use-pivot value            Select a pivot to reinvorce the class of interest. A value (false or true) - Default=false
-    -t, --sort-source value          Sort resources before appling the selection phase. A value (false or true) - Default=true
+    -m, --sort-source value          Sort resources before appling the selection phase. A value (false or true) - Default=true
     -l, --logfile FILE               Write log to FILE
     -h, --help                       Display this screen
     
