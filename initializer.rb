@@ -108,7 +108,6 @@ module Initializer_Module
         offset=offset+limit
         subjects = resources[0]
         data = resources[1]
-
         if data.size == 1 and offset < count and limit < 100
           offset=offset-limit
           limit = limit + limit
