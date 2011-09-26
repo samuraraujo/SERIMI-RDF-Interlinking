@@ -24,7 +24,7 @@ end
 def query_by_blocking (type, limit, offset,labelproperties)
   $bdata = sort_source_by_label(type,labelproperties) if $bdata == nil
   puts "sorted data"
-  $bdata
+   
   return $bdata[offset..(offset+limit-1)]
 end
 
