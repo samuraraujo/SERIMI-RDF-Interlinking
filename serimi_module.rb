@@ -1,5 +1,5 @@
 module Serimi_Module
-   def get_text_properties(rdfdata)
+  def get_text_properties(rdfdata)
 
     puts "Computing text properties ... "
     data = Array.new(rdfdata)
@@ -13,6 +13,7 @@ module Serimi_Module
     triples.each{|s,p,o| textp << p if o.to_s.size > 400}
     textp.uniq
   end
+
   ##############################################################################################################################
   def entity_label_filtering(rdfdata)
     puts "Filtering Data by Entity Label"
@@ -24,10 +25,10 @@ module Serimi_Module
     puts "ENTITY LABELS FOR FILTERING"
     puts discriminative_predicates
     puts "################################"
-     $word_by_word_properties.delete("?p")
+    $word_by_word_properties.delete("?p")
     $word_by_word_properties= ($word_by_word_properties + discriminative_predicates)[0..5]
     $word_by_word_properties.uniq!
-    
+
     ######################## SELECTING RESOURCE WITH MAXIMUM STRING SIMILARITY MEASURE PER GROUP ##########################
     count=-1
     rdfdata.map!{|group|
@@ -50,14 +51,14 @@ module Serimi_Module
           # puts "@@@@@"
           [s,p,o, (o.instance_of?(RDFS::Resource) or $textp.include?(p) or !entitylabel) ? 0 : (max_jaro(o.to_s, @searchedlabels[count],s).to_f ) , entropies[p] == nil ? 0 : 1-entropies[p]]   }
         # maximas = group.map{|s,p,o|  [s,p,o, (o.instance_of?(RDFS::Resource) or $textp.include?(p)  ) ? 0 : max_jaro(o.to_s, @searchedlabels[count],s).to_f ]   }
-         
+
         max = maximas.map{|s,p,o,m| m.to_f }.max
 
         # puts  "MAXIMA"
         # puts max
         selection = []
         selection = maximas.map{|s,p,o,m,e| s if m == max }.uniq.compact if max > $filter_threshold
-        # selection = maximas.map{|s,p,o,m,e| s if m > $filter_threshold  }.uniq.compact 
+        # selection = maximas.map{|s,p,o,m,e| s if m > $filter_threshold  }.uniq.compact
         # maximas = maximas.map{|s,p,o,m,e| [s,p,o,m,e] if m == max}.uniq.compact if max > $filter_threshold
         # max_entropy = maximas.map{|s,p,o,m,e| e }.max
         # selection = maximas.map {|s,p,o,m,e| s if   e == max_entropy}.uniq.compact  if max > $filter_threshold
@@ -87,8 +88,8 @@ module Serimi_Module
     redirect.uniq!
     subjects = redirect.map{|s,p| s}
 
-    data.delete_if{|s,p,o| subjects.include?(s)   } 
-    redirect.each{|s,o| 
+    data.delete_if{|s,p,o| subjects.include?(s)   }
+    redirect.each{|s,o|
       b= nil
       begin
         b =  Query.new.adapters($session[:target]).sparql("SELECT DISTINCT  ?p ?o  WHERE { #{o} ?p ?o  . } " ).execute
@@ -98,7 +99,7 @@ module Serimi_Module
         puts "******************* EXCEPTION *****************"
         puts ex.message
       end
-      b.map!{|p,x| [o,p,x]} 
+      b.map!{|p,x| [o,p,x]}
       data = data + b
     }
     data.uniq
@@ -111,11 +112,11 @@ module Serimi_Module
     c = 0
     # puts "LABELS"
     # puts labels
-    # puts "-------" 
+    # puts "-------"
     labels.each{|x|
-    # c = c + a.jarowinkler_similar(x.downcase)  
-      c = c + advanced_string_matching(a, x) 
-    } 
+    # c = c + a.jarowinkler_similar(x.downcase)
+      c = c + advanced_string_matching(a, x)
+    }
     # puts a
     # puts c
     c
@@ -125,17 +126,19 @@ module Serimi_Module
 
   def valid_date?( str)
     Date.strptime(str,"%m/%d/%Y" ) rescue Date.strptime(str,"%Y-%m-%d" )  rescue false
-  end 
+  end
 
   ##############################################################
   def get_ambiguous(type, limit, offset, labelproperties)
     @searchedlabels = []
-
-    # subjects = query_by_offset(type, limit, offset)
-    subjects = query_by_blocking(type, limit, offset, labelproperties) 
-
-    subjects.delete_if{|x| x[0].class.to_s == 'BNode'  } 
-    data = subjects.map{|s| 
+    subjects=[]
+    if $blocking
+      subjects = query_by_blocking(type, limit, offset, labelproperties)
+    else
+      subjects = query_by_offset(type, limit, offset)
+    end
+    subjects.delete_if{|x| x[0].class.to_s == 'BNode'  }
+    data = subjects.map{|s|
       puts s
       # if s.to_s.index("C0001418") != nil
       # puts s
@@ -155,7 +158,7 @@ module Serimi_Module
         end
         keywords.compact!
         keywords.delete_if {|b| b.to_s.size > 150 } # eliminates text
-        keywords.delete_if {|b| valid_date?(b.to_s) != false } # eliminates date 
+        keywords.delete_if {|b| valid_date?(b.to_s) != false } # eliminates date
         keywords=keywords.map {|b| b.split("(")[0].to_s.rstrip } # eliminates everything between parenteses
         keywords.uniq!
 
@@ -195,7 +198,8 @@ module Serimi_Module
 
     [subjects,data]
   end
- ##############################################################################################################################
+
+  ##############################################################################################################################
   def get_first_pivot(klass,limit, offset, labels)
     puts "Obtaining First Pivot"
     resources  = get_ambiguous(klass,limit, offset, labels)
@@ -218,10 +222,11 @@ module Serimi_Module
 
     puts "End of Obtaining First Pivot"
   end
+
   ## GET ENTITY LABELS
   def get_entity_labels(klass)
     puts "get_entity_labels"
-    
+
     data=[]
     if klass.index("select distinct") != nil
       data = Query.new.adapters($session[:origin]).sparql(klass + " limit #{4000} ").execute
@@ -268,11 +273,10 @@ module Serimi_Module
     puts labels
     $stopwords= get_stop_words(klass,labels)
     labels
-  
-  end
- 
 
-  def get_stop_words(klass, labels) 
+  end
+
+  def get_stop_words(klass, labels)
     puts "STOP WORDS"
     all_stopwords=[]
     data=[]
@@ -336,7 +340,8 @@ module Serimi_Module
     }
     all_stopwords
   end
-   ####################################
+
+  ####################################
   def getCode(v)
     ####################################
     #    puts "Getting Code"
@@ -356,6 +361,6 @@ module Serimi_Module
     end
     ####################################
     return  c
-  end 
- 
+  end
+
 end

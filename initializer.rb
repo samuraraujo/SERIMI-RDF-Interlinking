@@ -18,6 +18,7 @@ module Initializer_Module
     $filter_threshold=params[:stringthreshold]
     $rdsthreshold=params[:rdsthreshold]
     $usepivot=true if params[:usepivot] ==  'true'
+    $blocking=true  if params[:blocking] ==  'true'
     if params[:append] == 'w'
       File.delete($output) if  File.exist?($output) 
     end  
@@ -68,6 +69,10 @@ module Initializer_Module
       labels =  get_entity_labels(klass)
 
       count =  Query.new.adapters($session[:origin]).sparql("select distinct count(?s) where {?s ?p #{klass} . }").execute[0][0].to_i
+       if $blocking
+        $bdata = sort_source_by_label(klass,labels) if $bdata == nil
+        count = $bdata.size
+      end
       offset = 0
       puts  "PREVIOUS OFFSET"
       puts $offset

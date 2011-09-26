@@ -72,8 +72,12 @@ opts = OptionParser.new do |opts|
     options[:rdsthreshold] = c
   end
  options[:usepivot] = 'false'
-  opts.on( '-u', '--use-pivot value', Float, 'Select a pivot to reinvorce the class of interest. A value (false or true) - Default=false' ) do |c|
+  opts.on( '-u', '--use-pivot value', String, 'Select a pivot to reinvorce the class of interest. A value (false or true) - Default=false' ) do |c|
     options[:rdsthreshold] = c
+  end
+   options[:blocking] = 'true'
+  opts.on( '-t', '--sort-source value', String, 'Sort resources before appling the selection phase. A value (false or true) - Default=true' ) do |c|
+    options[:blocking] = c
   end
   options[:logfile] = nil
   opts.on( '-l', '--logfile FILE', 'Write log to FILE' ) do |file|
