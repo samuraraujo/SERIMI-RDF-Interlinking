@@ -110,9 +110,12 @@ module Initializer_Module
         data = resources[1]
 
         if data.size == 1 and offset < count and limit < 100
-
           offset=offset-limit
           limit = limit + limit
+           if offset == 0 
+            offset = 5
+            limit = limit + offset
+          end
           puts "CHANGING LIMIT TO " + limit.to_s
         next
         end
