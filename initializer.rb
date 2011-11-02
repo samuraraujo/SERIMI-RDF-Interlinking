@@ -87,6 +87,7 @@ module Initializer_Module
       puts "NUMBER OF INSTANCES"
       puts count
       #GET FIRST PIVOT
+      limit = count if limit > count
       get_first_pivot(klass,5, offset, labels) if $usepivot
       while offset <= count and limit <= count    do
         if offset == 0 
