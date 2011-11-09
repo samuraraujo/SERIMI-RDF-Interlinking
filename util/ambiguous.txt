@@ -1,0 +1,3 @@
+<http://dbpedia.org/resource/Estados_Unidos>
+<http://dbpedia.org/resource/Us>
+<http://dbpedia.org/resource/Centipede_%28game%29>

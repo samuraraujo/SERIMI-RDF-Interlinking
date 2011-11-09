@@ -158,6 +158,7 @@ module Serimi_Module
         end
         keywords.compact!
         keywords.delete_if {|b| b.to_s.size > 150 } # eliminates text
+        keywords.delete_if {|b| b.class.to_s == 'BNode' } # eliminates text
         keywords.delete_if {|b| valid_date?(b.to_s) != false } # eliminates date
         keywords=keywords.map {|b| b.split("(")[0].to_s.rstrip } # eliminates everything between parenteses
         keywords.uniq!

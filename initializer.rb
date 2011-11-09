@@ -124,7 +124,7 @@ module Initializer_Module
         $subjects=subjects.map{|x| x[0].label}
         
         web_build_sample(data,subjects)
-      break if offset > 20
+      # break if offset > 20
       # break
       end
       puts "LAST OFFSET PROCESSED"
