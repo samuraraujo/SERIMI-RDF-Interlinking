@@ -71,17 +71,20 @@ def check_result(origin, target)
     subjects << line.rstrip
   }
 
-  puts "NOT FOUND"
+   puts "NOT FOUND"
   puts subjects.uniq.size
   puts encountered.uniq.size
-  searched = encountered.map{|x| x.split("=")[0].to_s}
-  puts subjects - searched
-  # exit
-
+   
+   
   golden = solution.map{|x| x.split("=")[0]}
   encountered.delete_if{|x| !golden.include?(x.split("=")[0]) }
-
-  solution.delete_if{|x| !searched.include?(x.split("=")[0]) }
+  
+   searched = encountered.map{|x| x.split("=")[0].to_s}
+   puts subjects - searched
+   puts "####" 
+   solution.delete_if{|x| !subjects.include?(x.split("=")[0]) } 
+  
+ 
 
   if  target == "dbpedia"
     

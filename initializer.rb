@@ -11,6 +11,7 @@ $label=["?p"]
 $session = Hash.new
 module Initializer_Module
   def initialize(params)
+    
     $usepivot=false
     $topk=params[:topk].to_i 
     $output=params[:output]
@@ -264,8 +265,7 @@ module Initializer_Module
     }
   end
 
-   def mount_adapter(endpoint, method=:post,cache=true)
-      
+   def mount_adapter(endpoint, method=:post,cache=true) 
     adapter=nil
     begin 
       adapter = ConnectionPool.add_data_source :type => :sparql, :engine => :virtuoso, :title=> endpoint , :url =>  endpoint, :results => :sparql_xml, :caching => cache , :request_method => method
