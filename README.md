@@ -83,8 +83,8 @@ After install JRuby, you have to install the following gems:
 You MUST install the uuidtools version 1.0.7
 
 	gem install uuidtools -v=1.0.7
-	gem install xml-object v=0.9.93
-	gem install rails v=2.3.2
+	gem install xml-object -v=0.9.93
+	gem install rails -v=2.3.2
 	
 
 ## Installation
