@@ -112,7 +112,6 @@ Example of use:
 The following example, shows how you can interlink the class Drugs from Sider with DBPedia.
 
 	ruby serimi.rb -s http://www4.wiwiss.fu-berlin.de/sider/sparql -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://www4.wiwiss.fu-berlin.de/sider/resource/sider/drugs 
-or 
 	ruby serimi.rb -s   http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -t http://dbpedia.org/sparql?default-graph-uri=http://dbpedia.org -c http://dbpedia.org/class/yago/StatesAndTerritoriesOfIndia
 
 
