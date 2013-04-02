@@ -49,10 +49,11 @@ ALL COMMANDS ARE COMPULSORY
 	checkpoint;
 	checkpoint_interval(30);
 
-### 2. JRuby
+### 2. JRuby and Ruby
 
 SERIMI is a Ruby application and demands the JRuby version of ruby. We recommend to install JRuby using the [RVM](https://rvm.beginrescueend.com/).
 
+You must use any Jruby with Ruby 1.8.7. It does not work for ruby > 1.8.7.
 ### 3. Gems
 
 After install JRuby, you have to install the following gems:
